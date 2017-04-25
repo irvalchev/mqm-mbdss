@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mqm.Mbdss.Console", "Mqm.Mbdss\Mqm.Mbdss.Console.csproj", "{6128C8C6-FD86-4560-AA2E-E35B548C91B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mqm.Mbdss.Core", "Mqm.Mbdss.Core\Mqm.Mbdss.Core.csproj", "{048B4135-6078-4C06-8C9D-52A356DC4DCF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6128C8C6-FD86-4560-AA2E-E35B548C91B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6128C8C6-FD86-4560-AA2E-E35B548C91B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6128C8C6-FD86-4560-AA2E-E35B548C91B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6128C8C6-FD86-4560-AA2E-E35B548C91B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{048B4135-6078-4C06-8C9D-52A356DC4DCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{048B4135-6078-4C06-8C9D-52A356DC4DCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{048B4135-6078-4C06-8C9D-52A356DC4DCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{048B4135-6078-4C06-8C9D-52A356DC4DCF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
