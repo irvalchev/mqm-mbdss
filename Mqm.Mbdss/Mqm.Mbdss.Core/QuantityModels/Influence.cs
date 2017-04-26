@@ -1,10 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Mqm.Mbdss.Core
 {
     public class Influence
     {
+        #region Properties
+
+        public int Description { get; set; }
+        public int Id { get; set; }
+        public IList<QuantityRoleMapping> QuantityAssignments { get; set; }
+        public QuantityRoleMapping QuantityDefinition { get; set; }
+        public InfluenceType Type { get; set; }
+
+        #endregion Properties
     }
 }

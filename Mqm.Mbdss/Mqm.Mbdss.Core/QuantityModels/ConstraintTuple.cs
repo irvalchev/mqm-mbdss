@@ -2,13 +2,11 @@
 
 namespace Mqm.Mbdss.Core
 {
-    public class Domain
+    public class ConstraintTuple
     {
         #region Properties
 
-        public string Description { get; set; }
-        public int Id { get; set; }
-        public string Name { get; set; }
+        public ConstraintType Constraint { get; set; }
         public IList<DomainValue> Values { get; set; }
 
         #endregion Properties

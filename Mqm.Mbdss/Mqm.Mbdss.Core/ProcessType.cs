@@ -6,6 +6,7 @@ namespace Mqm.Mbdss.Core
     {
         #region Properties
 
+        public string Description { get; set; }
         public Effect Effect { get; set; }
         public int Id { get; set; }
         public string Name { get; set; }
