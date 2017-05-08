@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Mqm.Mbdss.Core
+namespace Mqm.Mbdss.Core.DomainTheory
 {
     public class ObjectType
     {
@@ -8,8 +8,8 @@ namespace Mqm.Mbdss.Core
 
         public int Id { get; set; }
         public string Name { get; set; }
-        public IList<ObjectType> ParentTypes { get; set; }
-        public IList<QuantityRole> QuantityRoles { get; set; }
+        public ICollection<ObjectType> ParentTypes { get; set; }
+        public ICollection<QuantityRole> QuantityRoles { get; set; }
 
         #endregion Properties
     }

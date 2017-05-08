@@ -1,4 +1,4 @@
-﻿namespace Mqm.Mbdss.Core
+﻿namespace Mqm.Mbdss.Core.DomainTheory
 {
     public class ExistenceAssignment
     {
@@ -7,7 +7,7 @@
         public string Description { get; set; }
         public bool Exists { get; set; }
         public int Id { get; set; }
-        public IStructuralElement StructuralElement { get; set; }
+        public IStructuralElementDefinition Element { get; set; }
 
         #endregion Properties
     }

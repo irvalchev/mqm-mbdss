@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Mqm.Mbdss.Core
+namespace Mqm.Mbdss.Core.DomainTheory
 {
     public class Influence
     {

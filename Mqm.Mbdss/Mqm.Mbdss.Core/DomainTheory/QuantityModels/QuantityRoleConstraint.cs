@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Mqm.Mbdss.Core
+namespace Mqm.Mbdss.Core.DomainTheory
 {
     public class QuantityRoleConstraint
     {
@@ -9,8 +9,8 @@ namespace Mqm.Mbdss.Core
         public ConstraintType Constraint { get; set; }
         public string Description { get; set; }
         public int Id { get; set; }
-        public Dictionary<int, QuantityRoleMapping> QuantityAssignments { get; set; }
-        public Dictionary<int, DomainValue> ValueAssignments { get; set; }
+        public IDictionary<int, QuantityRoleMapping> QuantityAssignments { get; set; }
+        public IDictionary<int, DomainValue> ValueAssignments { get; set; }
 
         #endregion Properties
     }

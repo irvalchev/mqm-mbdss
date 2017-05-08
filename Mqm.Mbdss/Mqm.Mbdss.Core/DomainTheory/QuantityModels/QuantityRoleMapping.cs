@@ -1,4 +1,4 @@
-﻿namespace Mqm.Mbdss.Core
+﻿namespace Mqm.Mbdss.Core.DomainTheory
 {
     public class QuantityRoleMapping
     {

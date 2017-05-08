@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Mqm.Mbdss.Core
+namespace Mqm.Mbdss.Core.DomainTheory
 {
     public class Condition
     {
@@ -8,15 +8,15 @@ namespace Mqm.Mbdss.Core
 
         public CompositionType CompositionType { get; set; }
 
-        public IList<Condition> CompoundConditions { get; set; }
+        public ICollection<Condition> CompoundConditions { get; set; }
 
         public int Id { get; set; }
 
         public string Description { get; set; }
 
-        public IList<QuantityRoleConstraint> QuantityConditions { get; set; }
+        public ICollection<QuantityRoleConstraint> QuantityConditions { get; set; }
 
-        public IList<ExistenceAssignment> StructuralConditions { get; set; }
+        public ICollection<ExistenceAssignment> StructuralConditions { get; set; }
 
         #endregion Properties
     }

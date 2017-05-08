@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace Mqm.Mbdss.Core
+namespace Mqm.Mbdss.Core.DomainTheory
 {
-    public class ObjectRoleRelation : IStructuralElement
+    public class ObjectRoleRelation : IStructuralElementDefinition
     {
         #region Properties
 
