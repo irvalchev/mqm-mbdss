@@ -2,7 +2,7 @@
 
 namespace Mqm.Mbdss.Core.DomainTheory
 {
-    public class QuantityRole : IStructuralElementDefinition
+    public class QuantityRole
     {
         #region Properties
 

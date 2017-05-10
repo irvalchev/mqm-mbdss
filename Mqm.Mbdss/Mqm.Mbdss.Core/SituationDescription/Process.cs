@@ -9,16 +9,20 @@ namespace Mqm.Mbdss.Core.SituationDescription
     {
         #region Constructors
 
-        public Process(ProcessType type)
+        public Process(ProcessType type, ProcessRolesMap objectRolesMap)
         {
             Uid = Guid.NewGuid();
-            Type = type;
+            ObjectRolesMap = objectRolesMap ?? throw new ArgumentNullException(nameof(objectRolesMap));
+            Type = type ?? throw new ArgumentNullException(nameof(type));
         }
 
         #endregion Constructors
 
         #region Properties
 
+        /// <summary>
+        /// All object roles in the process (based on its type)
+        /// </summary>
         public ICollection<ObjectRole> ObjectRoles
         {
             get
@@ -27,8 +31,15 @@ namespace Mqm.Mbdss.Core.SituationDescription
             }
         }
 
-        public IDictionary<ObjectRole, ObjectInstance> ObjectRolesMap { get; set; }
+        /// <summary>
+        /// Contains the known connection between roles and object instances
+        /// </summary>
+        public ProcessRolesMap ObjectRolesMap { get; private set; }
 
+        /// <summary>
+        /// All currently assigned object in roles.
+        /// NB: This is extracted from the <see cref="ObjectRolesMap"/>, so there might be duplicates
+        /// </summary>
         public ICollection<ObjectInstance> Objects
         {
             get
@@ -37,6 +48,9 @@ namespace Mqm.Mbdss.Core.SituationDescription
             }
         }
 
+        /// <summary>
+        /// All quantity roles of the process itself (based on its type)
+        /// </summary>
         public ICollection<QuantityRole> QuantityRoles
         {
             get
@@ -51,26 +65,46 @@ namespace Mqm.Mbdss.Core.SituationDescription
 
         #endregion Properties
 
+        #region Methods
+
         /// <summary>
-        /// Creates (or finds the current existing) structural effects of the process
-        /// NB: The function will automatically add the new objects in the process' <see cref="ObjectRolesMap"/>
-        /// NB: The passed situation description will be updated with the newly created objects
+        /// Checks if the current process is the same as another process.
+        /// NB: As a basis for the comparison are used the assigned objects in the object roles which
+        ///     are specified in the CONDITION
         /// </summary>
-        /// <param name="situation">
-        /// The current situation description with all objects and object relations information. It
-        /// will be updated with the structural effects from the found effects
-        /// </param>
-        /// <param name="mappingRules">A collection of all objects mapping rules from the domain theory</param>
-        /// <returns>A collection of the NEW effect elements</returns>
-        public ICollection<IStructuralElement> CreateEffectElements(Situation situation, ICollection<ObjectMappingRule> mappingRules)
+        /// <param name="anotherProcess">The process to compare with</param>
+        /// <returns></returns>
+        public bool IsSameAs(Process anotherProcess)
         {
-            List<ObjectRelation> situationObjectRelations = situation.ObjectRelations.ToList();
-            List<ObjectInstance> situationObjects = situation.Objects.ToList();
-            List<IStructuralElement> effectElements = new List<IStructuralElement>();
+            if (anotherProcess == null || !anotherProcess.Type.Equals(this.Type))
+            {
+                return false;
+            }
+            else if (anotherProcess == this || anotherProcess.Uid == this.Uid)
+            {
+                return true;
+            }
+            else
+            {
+                List<ObjectRole> conditionRoles = this.Type.Precondition.GetAllRelevantObjectRoles().ToList();
 
-            throw new NotImplementedException();
+                foreach (var role in conditionRoles)
+                {
+                    ObjectInstance obj1 = this.ObjectRolesMap[role];
+                    ObjectInstance obj2 = anotherProcess.ObjectRolesMap[role];
 
-            return effectElements;
+                    // When any objects in the same roles are not the same and not equal then return false
+                    if (obj1 != obj2 && (!obj1?.Equals(obj2) ?? true))
+                    {
+                        return false;
+                    }
+                }
+
+                // If all object in the roles are the same then return true
+                return true;
+            }
         }
+
+        #endregion Methods
     }
 }
